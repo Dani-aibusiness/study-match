@@ -14,6 +14,12 @@ export default function Navbar() {
           <Link href="/core" className="transition hover:text-white">
             Get Help
           </Link>
+          <Link href="/product" className="transition hover:text-white">
+            Product
+          </Link>
+          <Link href="/pricing" className="transition hover:text-white">
+            Pricing
+          </Link>
           <Link href="/research" className="transition hover:text-white">
             Research
           </Link>
