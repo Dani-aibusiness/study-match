@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import {
   brand,
@@ -121,7 +122,7 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
   const activeCta = ctas[ctaVariant];
 
   return (
-    <div className="mt-10 space-y-14">
+    <div className="mt-12 space-y-16">
       {/* Brand system */}
       <section>
         <h2 className="text-xl font-semibold text-white">Brand system</h2>
@@ -176,19 +177,19 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
       <section>
         <h2 className="text-xl font-semibold text-white">Landing copy &amp; A/B tests</h2>
 
-        <div className="mt-4 rounded-xl border border-slate-800 bg-slate-900/50 p-6">
+        <div className="mt-4 rounded-xl border border-slate-800 bg-slate-900/50 p-8">
           <h3 className="text-2xl font-bold text-white">{activeHeadline.headline}</h3>
           <p className="mt-2 text-slate-400">{activeHeadline.subheadline}</p>
-          <button
-            type="button"
-            className="mt-4 rounded-lg bg-emerald-500 px-5 py-2.5 font-semibold text-slate-950"
+          <Link
+            href="/core"
+            className="mt-6 inline-block rounded-lg bg-emerald-500 px-5 py-2.5 font-semibold text-slate-950 transition hover:bg-emerald-400"
           >
             {activeCta}
-          </button>
+          </Link>
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-slate-800 p-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="rounded-lg border border-slate-800 p-5">
             <div className="text-sm font-semibold text-white">Headline test</div>
             <p className="mt-1 text-xs text-slate-500">
               Pick which headline is live, each pick logs a vote.
@@ -219,7 +220,7 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
             </div>
           </div>
 
-          <div className="rounded-lg border border-slate-800 p-4">
+          <div className="rounded-lg border border-slate-800 p-5">
             <div className="text-sm font-semibold text-white">CTA button test</div>
             <p className="mt-1 text-xs text-slate-500">
               "{ctas.A}" vs. "{ctas.B}" — each pick logs a vote.
@@ -255,9 +256,9 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
       {/* Social posts */}
       <section>
         <h2 className="text-xl font-semibold text-white">Social posts (10)</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {socialPosts.map((post) => (
-            <div key={post.id} className="rounded-lg border border-slate-800 p-4">
+            <div key={post.id} className="rounded-lg border border-slate-800 p-5">
               <div className="flex items-center justify-between">
                 <span className="rounded-full bg-slate-800 px-2 py-0.5 text-xs font-semibold text-slate-300">
                   {post.platform}
@@ -270,7 +271,7 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
                   {copiedId === post.id ? "Copied!" : "Copy"}
                 </button>
               </div>
-              <p className="mt-2 text-sm text-slate-300">{post.copy}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">{post.copy}</p>
             </div>
           ))}
         </div>
@@ -279,9 +280,9 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
       {/* Video scripts */}
       <section>
         <h2 className="text-xl font-semibold text-white">Video scripts (3)</h2>
-        <div className="mt-4 space-y-3">
+        <div className="mt-5 space-y-4">
           {videoScripts.map((script) => (
-            <div key={script.id} className="rounded-lg border border-slate-800 p-4">
+            <div key={script.id} className="rounded-lg border border-slate-800 p-5">
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-white">{script.title}</div>
                 <button
@@ -297,7 +298,7 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
                   {copiedId === script.id ? "Copied!" : "Copy"}
                 </button>
               </div>
-              <div className="mt-2 space-y-1 text-sm text-slate-300">
+              <div className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
                 <p><span className="text-slate-500">Hook:</span> {script.hook}</p>
                 <p><span className="text-slate-500">Body:</span> {script.body}</p>
                 <p><span className="text-slate-500">CTA:</span> {script.cta}</p>
@@ -314,17 +315,17 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
           <table className="w-full text-left text-sm">
             <thead className="bg-slate-900 text-slate-400">
               <tr>
-                <th className="px-3 py-2">Day</th>
-                <th className="px-3 py-2">Channel</th>
-                <th className="px-3 py-2">Theme</th>
+                <th className="px-4 py-3">Day</th>
+                <th className="px-4 py-3">Channel</th>
+                <th className="px-4 py-3">Theme</th>
               </tr>
             </thead>
             <tbody>
               {campaignCalendar.map((d) => (
                 <tr key={d.day} className="border-t border-slate-800 text-slate-300">
-                  <td className="px-3 py-2">{d.day}</td>
-                  <td className="px-3 py-2">{d.channel}</td>
-                  <td className="px-3 py-2">{d.theme}</td>
+                  <td className="px-4 py-3">{d.day}</td>
+                  <td className="px-4 py-3">{d.channel}</td>
+                  <td className="px-4 py-3">{d.theme}</td>
                 </tr>
               ))}
             </tbody>
@@ -339,8 +340,8 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
           Saves which headline/CTA variant is currently selected, so you can
           compare campaign setups later.
         </p>
-        <div className="mt-4 rounded-lg border border-slate-800 p-4">
-          <div className="grid gap-3 sm:grid-cols-2">
+        <div className="mt-5 rounded-lg border border-slate-800 p-5">
+          <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="text-xs font-semibold text-slate-400">Label</label>
               <input
@@ -372,11 +373,11 @@ export default function MarketingClient({ initialVotes, initialSnapshots }: Prop
         </div>
 
         {snapshots.length > 0 && (
-          <div className="mt-4 space-y-2">
+          <div className="mt-5 space-y-3">
             {snapshots.map((s) => (
               <div
                 key={s.id}
-                className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-slate-800 p-3 text-sm"
+                className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-slate-800 p-4 text-sm"
               >
                 <div className="text-white font-semibold">{s.label}</div>
                 <div className="text-slate-400">
