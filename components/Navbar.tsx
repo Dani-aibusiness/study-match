@@ -20,6 +20,9 @@ export default function Navbar() {
           <Link href="/pricing" className="transition hover:text-white">
             Pricing
           </Link>
+          <Link href="/marketing" className="transition hover:text-white">
+            Marketing
+          </Link>
           <Link href="/research" className="transition hover:text-white">
             Research
           </Link>
