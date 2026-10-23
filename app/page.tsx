@@ -1,59 +1,64 @@
 import Link from "next/link";
 
-export default function Home() {
+const features = [
+  {
+    title: "AI explains first",
+    body: "Upload or describe your homework and get a Socratic walkthrough — not just a flat answer you can't learn from.",
+  },
+  {
+    title: "Human tutors when you need them",
+    body: "Still stuck after the AI explanation? You're matched to a real peer tutor instead of guessing on your own.",
+  },
+  {
+    title: "Built for real course loads",
+    body: "Classify, track, and revisit every question you've asked from your dashboard — no more lost chat threads.",
+  },
+];
+
+export default function HomePage() {
   return (
     <main className="flex-1">
-      <section className="mx-auto flex max-w-5xl flex-col items-center px-6 py-24 text-center">
-        <span className="mb-5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1 text-sm font-medium text-emerald-400">
-          For students & peer tutors
+      {/* Hero */}
+      <section className="mx-auto max-w-5xl px-6 py-24 text-center">
+        <span className="inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400">
+          For students who want to actually learn it
         </span>
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Stuck on homework? Get matched fast.
+        <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+          Stuck on homework? Think it through before you give up.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-slate-400">
-          Upload a photo of what you&apos;re stuck on or describe it — StudyMatch
-          classifies the subject, topic and urgency, and points you to the
-          right kind of peer tutor.
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          StudyMatch pairs Socratic AI explanations with real peer tutors, so
+          you actually learn — not just copy an answer.
         </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/core"
             className="rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400"
           >
-            Get help now
+            Get Help Now
           </Link>
           <Link
-            href="/dashboard"
+            href="/marketing"
             className="rounded-lg border border-slate-700 px-6 py-3 font-semibold text-slate-200 transition hover:border-slate-500"
           >
-            View past submissions
+            See how it works
           </Link>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-5xl gap-6 px-6 pb-24 sm:grid-cols-3">
-        {[
-          {
-            title: "Describe or upload",
-            desc: "Type what you're stuck on, or snap a photo of the problem.",
-          },
-          {
-            title: "AI classification",
-            desc: "We detect subject, topic, level and urgency automatically.",
-          },
-          {
-            title: "Suggested tutor type",
-            desc: "A rule-based starting point — live matching comes later.",
-          },
-        ].map((f) => (
-          <div
-            key={f.title}
-            className="rounded-xl border border-slate-800 bg-slate-900/40 p-6"
-          >
-            <h3 className="font-semibold text-white">{f.title}</h3>
-            <p className="mt-2 text-sm text-slate-400">{f.desc}</p>
-          </div>
-        ))}
+      {/* Features */}
+      <section className="mx-auto max-w-5xl px-6 pb-24">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {features.map((f) => (
+            <div
+              key={f.title}
+              className="rounded-xl border border-slate-800 bg-slate-900/50 p-6"
+            >
+              <h3 className="text-lg font-semibold text-white">{f.title}</h3>
+              <p className="mt-2 text-sm text-slate-400">{f.body}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
