@@ -14,6 +14,9 @@ export default function Navbar() {
           <Link href="/core" className="transition hover:text-white">
             Get Help
           </Link>
+          <Link href="/chat" className="transition hover:text-white">
+            Chat
+          </Link>
           <Link href="/product" className="transition hover:text-white">
             Product
           </Link>
