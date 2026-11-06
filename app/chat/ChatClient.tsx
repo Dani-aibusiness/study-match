@@ -234,16 +234,22 @@ export default function ChatClient({ initialUp, initialDown }: Props) {
   return (
     <div className="mt-10">
       <div className="rounded-xl border border-slate-800 bg-slate-900/50">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 px-5 py-3">
+        <div className="border-b border-slate-800 px-5 py-3">
           <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-300">
             Guided assistant · scripted, not an AI model
           </span>
+        </div>
+        <div className="border-b border-slate-800 bg-slate-950/40 px-5 py-4">
+          <label htmlFor="tester-name" className="block text-sm font-semibold text-slate-200">
+            Testing StudyMatch? Add your first name so your chat appears in the test log
+          </label>
           <input
+            id="tester-name"
             value={tester}
             onChange={(e) => setTester(e.target.value)}
             maxLength={40}
-            placeholder="Your first name (optional, for the test log)"
-            className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-1.5 text-xs text-white sm:w-72"
+            placeholder="First name (optional)"
+            className="mt-2 w-full rounded-md border border-emerald-500/40 bg-slate-950 px-3 py-2 text-sm text-white sm:w-72"
           />
         </div>
 
